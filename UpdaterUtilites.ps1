@@ -166,7 +166,7 @@ function CopyAimTrainerFiles {
 }
 
 function Main {
-    $silent = false
+    $silent = $false
     $saveZips = $false;
     $saveFolders = $false;
     $flowState = $false;
