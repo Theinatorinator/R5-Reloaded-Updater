@@ -166,10 +166,19 @@ function CopyAimTrainerFiles {
 }
 
 function Main {
+    $silent = false
     $saveZips = $false;
     $saveFolders = $false;
     $flowState = $false;
     $sdk = $false;
+    if ($silent) {
+        DownloadAndExtractDepot $saveZips
+        DownloadAndExtractAimTrainer
+        CopyDepotFiles
+        CopyAimTrainerFiles
+        Write-Host "OPERATION COMPLETE!" -ForegroundColor Green -BackgroundColor Black
+        exit 0
+    }
     $reply = Read-Host -Prompt "Press S for simple update, press D to enter advanced mode ?[S/D]"
     if ( $reply -notmatch "[sS]" ) { 
         $reply = $null
