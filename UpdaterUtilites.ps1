@@ -1,3 +1,12 @@
+param (
+    [String]$silentParam
+) 
+$silent = $null
+if ($silentParam -match "1") {
+    $silent = $true
+} else {
+    $silent = $false
+}
 #An r5 Reloaded update script
 #Created by TheInatorInator Discord:Theinatorinator#4434 Github:https://github.com/Theinatorinator
 
@@ -166,7 +175,7 @@ function CopyAimTrainerFiles {
 }
 
 function Main {
-    $silent = $false
+    param([bool]$silent)
     $saveZips = $false;
     $saveFolders = $false;
     $flowState = $false;
@@ -217,4 +226,4 @@ function Main {
     Write-Host "OPERATION COMPLETE!" -ForegroundColor Green -BackgroundColor Black
 }
 
-Main
+Main $silent
