@@ -151,7 +151,7 @@ function DownloadAndExtractAimTrainer {
 function CopyAimTrainerFiles {
     param([bool]$shouldSaveAimTrainerFolders)
     #default params if not included
-    if ($shouldSaveAimTrainerFolders=$null) {
+    if ($null -eq $shouldSaveAimTrainerFolders) {
         $shouldSaveAimTrainerFolders=$false
     }
     #check for depot exsistince
